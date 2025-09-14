@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import DotGrid from "@/components/DotGrid";
+import GridBgLayout from "@/components/layouts/grid-bg-layout";
+import { Header } from "@/components/layouts/header";
+import PageContainer from "@/components/layouts/page-container";
+import TargetCursor from "@/components/TargetCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +28,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[1000px]`}
       >
-        {children}
+        <TargetCursor spinDuration={2} />
+
+        <GridBgLayout>
+          <PageContainer>
+            <Header />
+          </PageContainer>
+        </GridBgLayout>
       </body>
     </html>
   );
