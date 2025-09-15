@@ -12,7 +12,7 @@ const GridBgLayout = ({ children }: { children: ReactNode }) => {
       <DotGrid
         dotSize={5}
         gap={15}
-        baseColor={isDarkMode ? "#271e37" : "#413b3b"}
+        baseColor={isDarkMode ? "#271e37" : "#f0f0f0"}
         activeColor="#5227FF"
         proximity={120}
         shockRadius={250}

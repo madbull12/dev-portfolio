@@ -6,6 +6,8 @@ import GridBgLayout from "@/components/layouts/grid-bg-layout";
 import { Header } from "@/components/layouts/header";
 import PageContainer from "@/components/layouts/page-container";
 import TargetCursor from "@/components/TargetCursor";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import { FloatingDockWrapper } from "@/components/layouts/floating-dock-wrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +40,8 @@ export default function RootLayout({
         <GridBgLayout>
           <PageContainer>
             <Header />
+            {children}
+            <FloatingDockWrapper />
           </PageContainer>
         </GridBgLayout>
       </body>

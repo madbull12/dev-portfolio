@@ -1,14 +1,9 @@
-import { Header } from "@/components/layouts/header";
-
+import HeroSection from "@/components/home/hero-section";
 
 export default function Home() {
   return (
-    <main className="absolute top-0 left-4">
-      {/* <Header /> */}
-      {/* <SplitText text="test" className="text-3xl" />
-      <Button className="cursor-target" size={"icon"} variant={"outline"}>
-        <Linkedin />
-      </Button> */}
+    <main className="px-8 py-16">
+      <HeroSection />
     </main>
   );
 }
