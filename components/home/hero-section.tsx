@@ -5,7 +5,7 @@ import HeroText from '@/components/home/hero-text'
 
 const HeroSection = () => {
   return (
-    <section>
+    <section className='flex'>
         <HeroText />
     </section>
   )

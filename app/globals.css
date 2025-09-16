@@ -55,6 +55,21 @@
     background-position: 200%;
     }
   }
+
+}
+
+@theme inline {
+  --animate-wiggle: wiggle 5s ease-in-out infinite;
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: translateY(-5px);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+  }
 }
 
 :root {
