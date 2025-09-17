@@ -7,12 +7,14 @@ import {
   Terminal,
   TypingAnimation,
 } from "@/components/ui/shadcn-io/terminal";
+import { ShineBorder } from "@/components/ui/shine-border";
 
 const HeroSection = () => {
   return (
     <section className="flex">
       <HeroText />
       <Terminal className="flex-1">
+        <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
         <AnimatedSpan delay={0}>$ hello-world</AnimatedSpan>
         <TypingAnimation delay={1000} duration={100}>
           Hi, I'm Andrian 👋

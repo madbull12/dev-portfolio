@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { Cover } from "@/components/ui/cover";
+import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 
 const HeroText = () => {
   return (
@@ -23,6 +24,10 @@ const HeroText = () => {
       <div className="px-3 py-2 hidden sm:block absolute top-24 right-4 sm:right-10 bg-blue-500/20 rounded-[6px] w-max font-medium dark:text-blue-300 text-blue-500 border border-blue-500/20 animate-wiggle duration-1000">
         Clean Code
       </div> */}
+      <ContainerTextFlip
+        className="text-xl md:text-3xl mt-4"
+        words={["Front-end Developer", "Full-stack Developer", "Next.js Developer", "Typescript Enthusiast"]}
+      />
     </section>
   );
 };

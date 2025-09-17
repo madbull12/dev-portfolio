@@ -117,7 +117,7 @@ export const Header = () => {
             >
               <AnimatedThemeToggler />
             </RainbowButton>
-            <InteractiveHoverButton >
+            <InteractiveHoverButton className="cursor-target">
               Contact Me
             </InteractiveHoverButton>
             {/* <ModeToggle /> */}
