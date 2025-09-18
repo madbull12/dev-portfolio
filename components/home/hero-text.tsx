@@ -25,8 +25,10 @@ const HeroText = () => {
         Clean Code
       </div> */}
       <ContainerTextFlip
+        animationDuration={1000}
+        interval={5000}
         className="text-xl md:text-3xl mt-4"
-        words={["Front-end Developer", "Full-stack Developer", "Next.js Developer", "Typescript Enthusiast"]}
+        words={["Front-end Developer", "Full-stack Developer", "Next.js Developer", "Mobile Developer", "Typescript Enthusiast"]}
       />
     </section>
   );
