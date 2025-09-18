@@ -13,7 +13,7 @@ const HeroSection = () => {
   return (
     <section className="flex">
       <HeroText />
-      <Terminal className="flex-1">
+      <Terminal className="flex-1 relative overflow-hidden  w-full">
         <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
         <AnimatedSpan delay={0}>$ hello-world</AnimatedSpan>
         <TypingAnimation delay={1000} duration={100}>
@@ -25,7 +25,7 @@ const HeroSection = () => {
         </TypingAnimation>
         <AnimatedSpan delay={5500}>$ cat hobbies.txt</AnimatedSpan>
         <TypingAnimation delay={6500} duration={80}>
-          🚴 Motorbikes • 🎮 Gaming • 🎵 Music
+          🍔 Eat • 😴 Sleep • 💻 Code • 🏋️ Workout
         </TypingAnimation>
         <AnimatedSpan delay={5500}>$ open portfolio</AnimatedSpan>
         <TypingAnimation delay={6500} duration={80}>
