@@ -1,11 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import { GlowingEffect } from "../ui/glowing-effect";
-import { Logo } from "../svg/logo";
+import { Logo } from "@/components/svg/logo";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { User } from "lucide-react";
-import ShinyText from "../ui/shiny-text";
-import { TextGenerateEffect } from "../ui/text-generate-effect";
+import ShinyText from "@/components/ui/shiny-text";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { WritingText } from "@/components/ui/shadcn-io/writing-text";
 
 const AboutSection = () => {
   return (
@@ -27,7 +28,7 @@ const AboutSection = () => {
           height={500}
           className="rounded-3xl object-contain"
         />
-        <div>
+        <div className="space-y-4">
           <div className="flex items-center gap-x-4">
             <Avatar className="border rounded-full size-10">
               <AvatarImage
@@ -49,6 +50,16 @@ const AboutSection = () => {
           <TextGenerateEffect
             className="text-4xl"
             words={"Building modern, responsive, and scalable web apps."}
+          />
+          <WritingText
+            text="Building amazing interfaces has never been this smooth"
+            inView={true}
+            transition={{
+              type: "spring",
+              bounce: 0,
+              duration: 2,
+              delay: 0.3,
+            }}
           />
         </div>
       </div>
