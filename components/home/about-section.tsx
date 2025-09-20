@@ -10,7 +10,7 @@ import { WritingText } from "@/components/ui/shadcn-io/writing-text";
 
 const AboutSection = () => {
   return (
-    <section className="p-4 relative rounded-sm bg-background/10 backdrop-blur-md border border-border">
+    <section className="p-4 relative rounded-sm bg-background/50 border border-border">
       <GlowingEffect
         blur={0}
         borderWidth={3}
@@ -52,7 +52,8 @@ const AboutSection = () => {
             words={"Building modern, responsive, and scalable web apps."}
           />
           <WritingText
-            text="Building amazing interfaces has never been this smooth"
+            className="font-semibold"
+            text="Passionate about learning and problem-solving, I embrace challenges as opportunities to improve and grow."
             inView={true}
             transition={{
               type: "spring",

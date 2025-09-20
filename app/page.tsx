@@ -6,6 +6,7 @@ export default function Home() {
     <main className="px-8 py-16 container mx-auto space-y-16">
       <HeroSection />
       <AboutSection />
+
     </main>
   );
 }

@@ -2,11 +2,11 @@
 
 import { ReactNode } from "react";
 import DotGrid from "@/components/DotGrid";
-import { useModeAnimation } from "react-theme-switch-animation";
+import { useTheme } from "next-themes";
 
 const GridBgLayout = ({ children }: { children: ReactNode }) => {
-  const { isDarkMode } = useModeAnimation();  
-  console.log('isDarkmode: ', isDarkMode)
+  const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
   return (
     <main className="h-full w-full relative">
       <DotGrid
