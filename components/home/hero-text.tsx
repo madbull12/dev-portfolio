@@ -14,7 +14,7 @@ const HeroText = () => {
           Hello<span className="lg:hidden">,</span> <br />
         </h1>
         <h1 className="text-4xl font-black md:text-4xl lg:text-6xl  text-start  relative z-20 py-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
-          I'm <Cover className="cursor-target">Andrian Huang</Cover>
+          I'm <Cover>Andrian Huang</Cover>
         </h1>
       </div>
       {/* <div className="px-3 py-2 hidden sm:block absolute top-8 left-16 sm:left-32 bg-purple-500/20 rounded-[6px] w-max font-medium dark:text-purple-300 text-purple-500 border border-purple-500/20 animate-wiggle duration-1000">
