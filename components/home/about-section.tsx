@@ -115,7 +115,7 @@ const AboutSection = () => {
           </div>
           <div className="flex gap-4">
             {features.map((item, idx) => (
-              <CardSpotlight key={idx} >
+              <CardSpotlight key={idx} className="dark:bg-background/50 ">
                 <div className="flex flex-col items-center  relative">
                   <div className="flex justify-center mb-4 text-3xl">
                     {item.icon}
