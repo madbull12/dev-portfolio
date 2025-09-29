@@ -6,46 +6,82 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import {
-  IconArrowWaveRightUp,
-  IconBoxAlignRightFilled,
-  IconBoxAlignTopLeft,
-  IconClipboardCopy,
-  IconFileBroken,
-  IconFileCv,
-  IconSignature,
-  IconTableColumn,
-} from "@tabler/icons-react";
+
 import { Boxes, Music } from "lucide-react";
 import {
   IconBrandReact,
+  IconFileCv,
+  IconTableColumn,
   IconBrandNextjs,
   IconBrandTypescript,
   IconBrandTailwind,
+  IconBrandNodejs,
+  IconBrandMongodb,
+  IconBrandSupabase,
+  IconBrandPrisma,
+  IconBrandDocker,
+  IconBrandAws,
+  IconDatabase,
 } from "@tabler/icons-react";
 import LogoLoop from "@/components/ui/logo-loop";
-import { MagicCard } from "../ui/magic-card";
+import { MagicCard } from "@/components/ui/magic-card";
 import { ScaleLoader } from "react-spinners";
+import GitHubCalendar from "react-github-calendar";
 const techLogos = [
   {
-    node: <IconBrandReact className="size-14  text-sky-500" />,
+    node: <IconBrandReact className="size-14 text-sky-500" />,
     title: "React",
     href: "https://react.dev",
   },
   {
-    node: <IconBrandNextjs className="size-14  text-black dark:text-white" />,
+    node: <IconBrandNextjs className="size-14 text-black dark:text-white" />,
     title: "Next.js",
     href: "https://nextjs.org",
   },
   {
-    node: <IconBrandTypescript className="size-14  text-blue-600" />,
+    node: <IconBrandTypescript className="size-14 text-blue-600" />,
     title: "TypeScript",
     href: "https://www.typescriptlang.org",
   },
   {
-    node: <IconBrandTailwind className="size-14  text-cyan-400" />,
+    node: <IconBrandTailwind className="size-14 text-cyan-400" />,
     title: "Tailwind CSS",
     href: "https://tailwindcss.com",
+  },
+  {
+    node: <IconBrandNodejs className="size-14 text-green-600" />,
+    title: "Node.js",
+    href: "https://nodejs.org",
+  },
+  {
+    node: <IconBrandMongodb className="size-14 text-green-500" />,
+    title: "MongoDB",
+    href: "https://www.mongodb.com",
+  },
+  {
+    node: <IconBrandSupabase className="size-14 text-emerald-500" />,
+    title: "Supabase",
+    href: "https://supabase.com",
+  },
+  {
+    node: <IconBrandPrisma className="size-14 text-indigo-500" />,
+    title: "Prisma ORM",
+    href: "https://www.prisma.io",
+  },
+  {
+    node: <IconBrandDocker className="size-14 text-sky-600" />,
+    title: "Docker",
+    href: "https://www.docker.com",
+  },
+  {
+    node: <IconBrandAws className="size-14 text-orange-500" />,
+    title: "AWS",
+    href: "https://aws.amazon.com",
+  },
+  {
+    node: <IconDatabase className="size-14 text-gray-600 dark:text-gray-300" />,
+    title: "SQL",
+    href: "https://www.postgresql.org",
   },
 ];
 export function HomeBentoGrid() {
@@ -66,9 +102,20 @@ export function HomeBentoGrid() {
     </BentoGrid>
   );
 }
-const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl "></div>
-);
+const GithubSection = () => {
+  const { theme } = useTheme();
+  return (
+    <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl ">
+      <GitHubCalendar
+        username="madbull12"
+        blockSize={15}
+        blockMargin={5}
+        fontSize={16}
+        colorScheme={theme === "dark" ? "dark" : "light"}
+      />
+    </div>
+  );
+};
 
 const TechStack = () => {
   const { theme } = useTheme();
@@ -102,6 +149,10 @@ const MyResume = () => {
   );
 };
 
+const FavouriteDevelopersSection = () => {
+  return <div></div>;
+};
+
 export const SpotifyPlaylist = () => {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -130,7 +181,12 @@ export const SpotifyPlaylist = () => {
 
   return (
     <div className="relative w-full h-full">
-      {isLoading && <ScaleLoader className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" color={theme==="dark" ? "white" : "black"} />}
+      {isLoading && (
+        <ScaleLoader
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          color={theme === "dark" ? "white" : "black"}
+        />
+      )}
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -185,22 +241,10 @@ const items = [
     icon: <Music className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "The Power of Communication",
+    title: "Github Activity",
     description:
       "Understand the impact of effective communication in our lives.",
-    header: <Skeleton />,
+    header: <GithubSection />,
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "The Pursuit of Knowledge",
-    description: "Join the quest for understanding and enlightenment.",
-    header: <Skeleton />,
-    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "The Joy of Creation",
-    description: "Experience the thrill of bringing ideas to life.",
-    header: <Skeleton />,
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
   },
 ];

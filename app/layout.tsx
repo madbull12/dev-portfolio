@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[400vh]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen`}
       >
         <ThemeProvider attribute="class">
           <TargetCursor spinDuration={2} />
