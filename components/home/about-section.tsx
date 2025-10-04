@@ -63,13 +63,12 @@ const AboutSection = () => {
         proximity={64}
         inactiveZone={0.01}
       />
-      <div className="flex gap-8 items-start">
-        <Image
+      <div className="flex lg:flex-row items-center  flex-col gap-4 lg:items-start">
+        <img
           src="/assets/coding.jpg"
           alt="profile art"
-          width={400}
-          height={500}
-          className="rounded-3xl object-contain"
+
+          className="rounded-3xl lg:w-[500px] h-[400px] w-full object-cover "
         />
         <div className="space-y-4">
           <div className="flex items-center gap-x-4">
@@ -113,7 +112,7 @@ const AboutSection = () => {
               ))}
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 md:flex-row flex-col">
             {features.map((item, idx) => (
               <CardSpotlight key={idx} className="dark:bg-background/50 ">
                 <div className="flex flex-col items-center  relative">

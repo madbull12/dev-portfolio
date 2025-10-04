@@ -4,7 +4,7 @@ import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 
 const HeroText = () => {
   return (
-    <section className="flex-1 relative">
+    <section className="flex-1 relative w-full">
       <div className="text-xs bg-zinc-100 dark:bg-zinc-800/50 w-max rounded-full border flex items-center gap-2 px-3 py-1.5">
         <div className="size-2 rounded-full bg-violet-700 font-medium animate-pulse" />
         Turning ideas into code 💻
@@ -27,7 +27,7 @@ const HeroText = () => {
       <ContainerTextFlip
         animationDuration={1000}
         interval={5000}
-        className="text-xl md:text-3xl mt-4"
+        className="text-xl md:text-3xl w-full mt-4"
         words={["Front-end Developer", "Full-stack Developer", "Next.js Developer", "Mobile Developer", "Typescript Enthusiast"]}
       />
     </section>

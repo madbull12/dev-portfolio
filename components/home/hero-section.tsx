@@ -11,9 +11,9 @@ import { ShineBorder } from "@/components/ui/shine-border";
 
 const HeroSection = () => {
   return (
-    <section className="flex">
+    <section className="flex flex-col-reverse gap-4 items-center lg:flex-row">
       <HeroText />
-      <Terminal className="flex-1 relative overflow-hidden  w-full">
+      <Terminal className="flex-1 relative overflow-hidden  max-w-full">
         <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
         <AnimatedSpan delay={0}>$ hello-world</AnimatedSpan>
         <TypingAnimation delay={1000} duration={100}>

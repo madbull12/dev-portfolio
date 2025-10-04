@@ -6,8 +6,6 @@ import { useTheme } from "next-themes";
 import { BackgroundRippleEffect } from "../ui/background-ripple-effect";
 
 const GridBgLayout = ({ children }: { children: ReactNode }) => {
-  const { theme } = useTheme();
-  const isDarkMode = theme === "dark";
   return (
     <main className="w-full h-full relative">
       {/* <DotGrid
