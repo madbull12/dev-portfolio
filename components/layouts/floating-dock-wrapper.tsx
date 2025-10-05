@@ -36,11 +36,10 @@ export function FloatingDockWrapper() {
       ),
       href: "#",
     },
-    
   ];
   return (
     <div className="flex items-center justify-center  fixed bottom-8   w-full">
-      <FloatingDock mobileClassName="translate-y-20" items={links} />
+      <FloatingDock  items={links} />
     </div>
   );
 }

@@ -10,18 +10,17 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { Boxes, Music } from "lucide-react";
 import {
   IconBrandReact,
-  IconFileCv,
-  IconTableColumn,
   IconBrandNextjs,
   IconBrandTypescript,
   IconBrandTailwind,
-  IconBrandNodejs,
-  IconBrandMongodb,
-  IconBrandSupabase,
   IconBrandPrisma,
-  IconBrandDocker,
-  IconBrandAws,
+  IconBrandNodejs,
+  IconBrandReactNative,
   IconDatabase,
+  IconServer,
+  IconFileCv,
+  IconTableColumn,
+  IconBrandDocker,
 } from "@tabler/icons-react";
 import LogoLoop from "@/components/ui/logo-loop";
 import { MagicCard } from "@/components/ui/magic-card";
@@ -49,40 +48,36 @@ const techLogos = [
     href: "https://tailwindcss.com",
   },
   {
-    node: <IconBrandNodejs className="size-14 text-green-600" />,
+    node: <IconBrandPrisma className="size-14 text-indigo-500" />,
+    title: "Prisma",
+    href: "https://www.prisma.io",
+  },
+  {
+    node: <IconDatabase className="size-14 text-sky-700 dark:text-sky-400" />,
+    title: "PostgreSQL",
+    href: "https://www.postgresql.org",
+  },
+  {
+    node: <IconBrandReactNative className="size-14 text-sky-400" />,
+    title: "React Native",
+    href: "https://reactnative.dev",
+  },
+
+  {
+    node: <IconServer className="size-14 text-green-600" />,
+    title: "Express.js",
+    href: "https://expressjs.com",
+  },
+  {
+    node: <IconBrandNodejs className="size-14 text-green-500" />,
     title: "Node.js",
     href: "https://nodejs.org",
   },
   {
-    node: <IconBrandMongodb className="size-14 text-green-500" />,
-    title: "MongoDB",
-    href: "https://www.mongodb.com",
-  },
-  {
-    node: <IconBrandSupabase className="size-14 text-emerald-500" />,
-    title: "Supabase",
-    href: "https://supabase.com",
-  },
-  {
-    node: <IconBrandPrisma className="size-14 text-indigo-500" />,
-    title: "Prisma ORM",
-    href: "https://www.prisma.io",
-  },
-  {
-    node: <IconBrandDocker className="size-14 text-sky-600" />,
-    title: "Docker",
-    href: "https://www.docker.com",
-  },
-  {
-    node: <IconBrandAws className="size-14 text-orange-500" />,
-    title: "AWS",
-    href: "https://aws.amazon.com",
-  },
-  {
-    node: <IconDatabase className="size-14 text-gray-600 dark:text-gray-300" />,
-    title: "SQL",
-    href: "https://www.postgresql.org",
-  },
+    node:<IconBrandDocker className="size-14 text-sky-400"  />,
+    title:"Docker",
+    href:"https://docker.com"
+  }
 ];
 export function HomeBentoGrid() {
   return (
@@ -140,7 +135,7 @@ const TechStack = () => {
 
 const MyResume = () => {
   return (
-    <MagicCard className=" h-full flex items-center justify-center">
+    <MagicCard className=" h-full p-8 flex items-center justify-center">
       <p className="font-bold text-xl text-center">Resume</p>
       <p className="text-neutral-500 font-bold text-sm">
         (Click here to download)
@@ -149,9 +144,7 @@ const MyResume = () => {
   );
 };
 
-const FavouriteDevelopersSection = () => {
-  return <div></div>;
-};
+
 
 export const SpotifyPlaylist = () => {
   const { theme, systemTheme } = useTheme();
@@ -175,7 +168,7 @@ export const SpotifyPlaylist = () => {
 
   if (!mounted) {
     return (
-      <div className="w-full h-[352px] rounded-xl bg-gray-200 dark:bg-gray-800 animate-pulse" />
+      <div className="w-full h-[352px] rounded-xl bg-gray-200 dark:bg-zinc-950 animate-pulse" />
     );
   }
 
@@ -247,4 +240,5 @@ const items = [
     header: <GithubSection />,
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },
+  
 ];

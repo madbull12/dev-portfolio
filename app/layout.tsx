@@ -9,6 +9,7 @@ import TargetCursor from "@/components/TargetCursor";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { FloatingDockWrapper } from "@/components/layouts/floating-dock-wrapper";
 import { ThemeProvider } from "next-themes";
+import Footer from "@/components/layouts/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +44,7 @@ export default function RootLayout({
             <PageContainer>
               <Header />
               {children}
+              <Footer />
               <FloatingDockWrapper />
             </PageContainer>
           </GridBgLayout>

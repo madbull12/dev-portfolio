@@ -9,11 +9,11 @@ const HeroText = () => {
         <div className="size-2 rounded-full bg-violet-700 font-medium animate-pulse" />
         Turning ideas into code 💻
       </div>
-      <div className="flex flex-row  items-center my-4 lg:my-0 lg:block">
-        <h1 className="text-4xl text-start font-black md:text-4xl lg:text-6xl   relative z-20 py-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
+      <div className="flex flex-row  items-center lg:my-0 lg:block leading-2">
+        <h1 className="text-3xl  text-start font-black md:text-4xl lg:text-5xl   relative z-20 py-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
           Hello<span className="lg:hidden">,</span> <br />
         </h1>
-        <h1 className="text-4xl font-black md:text-4xl lg:text-6xl  text-start  relative z-20 py-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
+        <h1 className="text-3xl   font-black md:text-4xl lg:text-5xl  text-start  relative z-20 py-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
           I'm <Cover>Andrian Huang</Cover>
         </h1>
       </div>
