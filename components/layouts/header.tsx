@@ -15,6 +15,7 @@ import { RainbowButton } from "@/components/ui/rainbow-button";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import ContactMeButton from "./work-with-me-form";
 // const links = [
 //   {
 //     title: "All",
@@ -77,8 +78,8 @@ export const Header = () => {
     <>
       <header
         className={cn(
-          "top-8 sm:top-10 z-50 ",
-          !isDisableHeaderScroll && "sticky"
+          "top-8 sm:top-10 z-[999] w-full",
+          !isDisableHeaderScroll && "fixed"
         )}
       >
         <div
@@ -101,6 +102,7 @@ export const Header = () => {
               />
             ))}
           </div> */}
+
           <div className="flex items-center gap-2">
             <RainbowButton
               size={"icon"}
@@ -117,9 +119,6 @@ export const Header = () => {
             >
               <AnimatedThemeToggler />
             </RainbowButton>
-            <InteractiveHoverButton className="cursor-target">
-              Contact Me
-            </InteractiveHoverButton>
             {/* <ModeToggle /> */}
           </div>
         </div>

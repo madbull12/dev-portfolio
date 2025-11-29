@@ -10,14 +10,14 @@ type props = {
 };
 
 export const AnimatedThemeToggler = ({ className }: props) => {
-  // const { ref, toggleSwitchTheme, isDarkMode } = useModeAnimation();
+  const { ref, toggleSwitchTheme, isDarkMode } = useModeAnimation();
   const { theme, setTheme } = useTheme();
-  const isDarkMode = theme === "dark"
+  // const isDarkMode = theme === "dark"
   return (
     <button
-      // ref={ref}
+      ref={ref}
       onClick={() => {
-        // toggleSwitchTheme();
+        toggleSwitchTheme();
 
         setTheme(theme === "dark" ? "light" : "dark");
       }}

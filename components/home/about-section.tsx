@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { GlowingEffect } from "../ui/glowing-effect";
@@ -6,17 +8,49 @@ import { Code2, Layers, User, Zap } from "lucide-react";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { WritingText } from "@/components/ui/shadcn-io/writing-text";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { Button } from "@/components/ui/button";
+import {
+  IconBrandGithub,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandMailgun,
+  IconMail,
+  TablerIcon,
+} from "@tabler/icons-react";
 const exampleSkills = [
   "React",
   "TypeScript",
   "Next.js",
   "Tailwind CSS",
   "Zustand",
+  "Tanstack Query",
   "Framer Motion",
   "GraphQL",
   "Node.js",
-  "Testing (Jest)",
+  "Nest.js",
+  "REST API",
+  "Prisma",
+  "Postgresql",
   "Accessibility",
+];
+
+const socialMedias = [
+  {
+    href: "https://github.com/madbull12",
+    icon: <IconBrandGithub className="size-5" />,
+  },
+  {
+    href: "https://www.linkedin.com/in/andrian-lysander",
+    icon: <IconBrandLinkedin className="size-5" />,
+  },
+  {
+    href: "mailto:huangandrian02@gmail.com",
+    icon: <IconMail className="size-5" />,
+  },
+  {
+    href: "https://www.instagram.com/andriannnn1212",
+    icon: <IconBrandInstagram className="size-5" />,
+  },
 ];
 
 const features = [
@@ -36,7 +70,7 @@ const features = [
     description: "Optimizing for speed and efficiency",
   },
 ];
-const SkillTag = ({ text }: { text: string }) => {
+export const SkillTag = ({ text }: { text: string }) => {
   return (
     <div
       className={`
@@ -67,34 +101,44 @@ const AboutSection = () => {
         <img
           src="/assets/coding.jpg"
           alt="profile art"
-
           className="rounded-3xl lg:w-[500px] h-[400px] w-full object-cover "
         />
         <div className="space-y-4">
-          <div className="flex items-center gap-x-4">
-            <Avatar className="border rounded-full size-10">
-              <AvatarImage
-                src="/assets/profile-picture.jpg"
-                alt="profile-pic"
-              />
-              <AvatarFallback className="text-primary bg-primary/10">
-                <User className="size-4" />
-              </AvatarFallback>
-            </Avatar>
-            <div className="flex flex-col">
-              <p className="text-xl font-black">Andrian Huang</p>
-              <p className="text-muted-foreground tracking-wide text-base">
-                @Ekspedingin |{" "}
-                <span className="italic">Front End Developer</span>{" "}
-              </p>
+          <div className="flex items-center gap-4 flex-col sm:flex-row ">
+            <div className="mr-auto flex items-center gap-4">
+              <Avatar className="border rounded-full size-10">
+                <AvatarImage
+                  src="/assets/profile-picture.jpg"
+                  alt="profile-pic"
+                />
+                <AvatarFallback className="text-primary bg-primary/10">
+                  <User className="size-4" />
+                </AvatarFallback>
+              </Avatar>
+              <div>
+                <p className="text-xl font-black">Andrian Lysander</p>
+                <p className="text-muted-foreground tracking-wide text-base">
+                  @Ekspedingin |{" "}
+                  <span className="italic">Front End Developer</span>{" "}
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              {socialMedias.map((item) => (
+                <SocialMediaButton
+                  key={item.href}
+                  href={item.href}
+                  icon={item.icon}
+                />
+              ))}
             </div>
           </div>
           <TextGenerateEffect
-            className="text-4xl"
+            
             words={"Building modern, responsive, and scalable web apps."}
           />
           <WritingText
-            className="font-semibold"
+            className="font-semibold text-sm md:text-base"
             text="Passionate about learning and problem-solving, I embrace challenges as opportunities to improve and grow."
             inView={true}
             transition={{
@@ -132,6 +176,20 @@ const AboutSection = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+const SocialMediaButton = ({ href, icon }: { href: string; icon: any }) => {
+  return (
+    <Button
+      className="cursor-target"
+      variant={"outline"}
+      mode={"icon"}
+      size="lg"
+      onClick={() => window.open(href, "_blank", "noopener,noreferrer")}
+    >
+      {icon}
+    </Button>
   );
 };
 

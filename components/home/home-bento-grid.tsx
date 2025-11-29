@@ -74,10 +74,10 @@ const techLogos = [
     href: "https://nodejs.org",
   },
   {
-    node:<IconBrandDocker className="size-14 text-sky-400"  />,
-    title:"Docker",
-    href:"https://docker.com"
-  }
+    node: <IconBrandDocker className="size-14 text-sky-400" />,
+    title: "Docker",
+    href: "https://docker.com",
+  },
 ];
 export function HomeBentoGrid() {
   return (
@@ -144,8 +144,6 @@ const MyResume = () => {
   );
 };
 
-
-
 export const SpotifyPlaylist = () => {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -156,6 +154,7 @@ export const SpotifyPlaylist = () => {
   }, []);
 
   const currentTheme = theme === "system" ? systemTheme : theme;
+  console.log(currentTheme, theme);
 
   useEffect(() => {
     setIsLoading(true);
@@ -240,5 +239,4 @@ const items = [
     header: <GithubSection />,
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },
-  
 ];

@@ -19,7 +19,7 @@ export function FloatingDockWrapper() {
       icon: (
         <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/",
     },
 
     {
@@ -27,18 +27,18 @@ export function FloatingDockWrapper() {
       icon: (
         <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/projects",
     },
     {
       title: "Work",
       icon: (
         <Briefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/work",
     },
   ];
   return (
-    <div className="flex items-center justify-center  fixed bottom-8   w-full">
+    <div className="flex items-center justify-center  fixed bottom-8 z-50   w-full">
       <FloatingDock  items={links} />
     </div>
   );
