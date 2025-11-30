@@ -40,9 +40,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         </h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
           I started learning software development in 2021 and started my career
-          as a software developer in 2022, and ever since then I've worked on
-          multiple real world applications and ensured that those applications
-          were scalable and maintainable. Here's an overview
+          as a freelance software developer in 2022, and ever since then I've worked on
+          multiple real world applications and ensured that the applications
+          were scalable and maintainable.
         </p>
       </div>
 

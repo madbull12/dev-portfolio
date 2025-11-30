@@ -84,10 +84,10 @@ export const Header = () => {
       >
         <div
           className={cn(
-            "mx-auto flex max-w-6xl  justify-between gap-10 items-center transition-all duration-300 px-8 z-50 ",
+            "mx-auto flex   justify-between gap-10 items-center transition-all duration-400 ease-in-out px-8 z-50 ",
             isScrolled
-              ? "bg-white/80 backdrop-blur-3xl md:p-6 dark:bg-zinc-900/80  shadow -translate-y-8 md:rounded-3xl"
-              : "bg-transparent w-full "
+              ? "bg-white/80 backdrop-blur-3xl max-w-5xl md:p-6 dark:bg-zinc-900/80  shadow -translate-y-8 md:rounded-3xl"
+              : "bg-transparent w-full  max-w-6xl"
           )}
         >
           <div className="flex items-center gap-2">
