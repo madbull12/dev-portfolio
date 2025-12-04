@@ -10,7 +10,7 @@ import {
   IconNewSection,
   IconTerminal2,
 } from "@tabler/icons-react";
-import { Briefcase } from "lucide-react";
+import { Briefcase, Rss } from "lucide-react";
 
 export function FloatingDockWrapper() {
   const links = [
@@ -35,6 +35,13 @@ export function FloatingDockWrapper() {
         <Briefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "/work",
+    },
+    {
+      title: "Blog",
+      icon: (
+        <Rss className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/blog",
     },
   ];
   return (
