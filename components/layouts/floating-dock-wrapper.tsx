@@ -41,7 +41,7 @@ export function FloatingDockWrapper() {
       icon: (
         <Rss className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "/blog",
+      href: "/posts",
     },
   ];
   return (

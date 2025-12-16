@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+import { withContentCollections } from "@content-collections/next";
+ 
+const nextConfig: NextConfig = {};
+ 
+export default withContentCollections(nextConfig);

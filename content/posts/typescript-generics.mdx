@@ -1,0 +1,198 @@
+---
+datetime: 2023-01-22T15:51:52.609Z
+title: "Typescript Generics"
+description: "A guide on how to use typescript generics properly."
+tags:
+  - typescript
+---
+
+Today we will be learning about what typescript generics are and how to use them in your apps.
+
+## Introduction
+
+Typescript generics are one of the most powerful features in Typescript, yet a lot of typescript developers don't bother learning them because they look kinda scary at first glance. But there's no need to worry because they're actually not as scary as people think they are.
+
+One of the golden rules in programming is Don't Repeat Yourself (DRY), but a lot of times we keep writing the same code over and over again. For instance, let's take a look at this code
+
+```ts
+// Example of redundant functions that could be simplied with generics
+function getString(item: string): string {
+  return item;
+}
+
+function getNumber(item: number): number {
+  return item;
+}
+
+function getBoolean(item: boolean): boolean {
+  return item;
+}
+
+// Generic funtions to replace them
+function getItem<T>(item: T): T {
+  return item;
+}
+```
+
+## Generics
+
+So what exactly is generic? A generic is a way that allows you to build reusable functions that can work with multiple types like string, number, boolean and many more.
+
+In other words, generics allow you to define a placeholder type and it can be defined later on. Aight, let's just take a look at the code below in more detail.
+
+```ts
+function getItem(
+  item: string | number | boolean | string[]
+): string | number | boolean | string[] {
+  console.log(item);
+  return item;
+}
+
+function getItemGeneric<T>(item: T): T {
+  console.log(item);
+  return item;
+}
+```
+
+I want you to focus on the second function which is getItemGeneric. There we got angled brackets, then as in param we get an item which is of type T and as in return type we got T again. You can think of T as your placeholder type, and by the way you don't have to name it as T, you can also name it as anything but T is the most commonly used. Okay, now let's call the function, shall we?
+
+```ts
+function getItem(
+  item: string | number | boolean | string[]
+): string | number | boolean | string[] {
+  console.log(item);
+  return item;
+}
+
+function getItemGeneric<T>(item: T): T {
+  console.log(item);
+  return item;
+}
+
+getItemGeneric("hello");
+getItemGeneric<number>(5);
+getItemGeneric<boolean>(true);
+getItemGeneric<string>(10); //this will throw an error
+```
+
+In the first call, TypeScript automatically infers the type. Because we passed in a string ("hello"), TypeScript understands that T is string, so the return type is also string.
+
+In the second and third calls, we explicitly tell TypeScript what T should be by writing number and boolean. This is completely optional in most cases, but it can be useful when inference is not enough or when you want to be very explicit.
+
+In the last call, we pass an argument of type number after explicitly infered it as string. This would cause an error because Typescript expects you to put a string type but gets a number instead.
+
+## Why Not Use Union Types?
+
+You might be asking why don't we just use union types like string | number | boolean? Well, the problem with union types is that Typescript loses its precision. For example:
+
+```ts
+function getItem(item: string | number): string | number {
+  return item;
+}
+
+const result = getItem("hello");
+// result is typed as: string | number
+```
+
+Even though we passed in a string, TypeScript can’t be sure what comes out. Now compare that with generics:
+
+```ts
+function getItemGeneric<T>(item: T): T {
+  return item;
+}
+
+const result = getItemGeneric("hello");
+// result is typed as: string
+```
+
+With generics, the input and output types are linked together, so TypeScript knows exactly what type you’re working with.
+
+## Generic Constraints
+
+Sometimes you want to limit what types can be used with a generic. This is where constraints come in.
+
+```ts
+function getLength<T extends { length: number }>(item: T): number {
+  return item.length;
+}
+
+getLength("hello"); // ✅ works
+getLength([1, 2, 3]); // ✅ works
+getLength(123); // ❌ error
+```
+
+Here, we're saying that T must have a length property. So if we pass something that doesn't have a length in its property then it is gonna throw an error. This allows flexibility while still keeping things safe.
+
+## Generics in Interfaces and Types
+
+Can generics only be used in functions? Absolutely not, you can use generics in interfaces and type aliases too.
+
+```ts
+interface ApiResponse<T> {
+  data: T;
+  error: string | null;
+}
+
+const userResponse: ApiResponse<{ name: string; age: number }> = {
+  data: {
+    name: "Alex",
+    age: 25,
+  },
+  error: null,
+};
+```
+
+You will see this pattern a lot when working with APIs.
+
+## Generics in React Components
+
+Let's see how we use generics in react components. Generics are widely used in React, especially when building reusable and type-safe components.
+Let’s say you want to build a reusable list component that can render any type of data:
+
+```ts
+// Generic Props
+
+type ListProps<T> = {
+  items: T[];
+  renderItem: (item: T) => React.ReactNode;
+};
+
+function List<T>({ items, renderItem }: ListProps<T>) {
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>{renderItem(item)}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+Now we can use this component with full type safety, crazy isn't?
+
+```ts
+ <List
+  items={[1, 2, 3]}
+  renderItem={(item) => <span>{item}</span>}
+/>
+
+<List
+  items={["a", "b", "c"]}
+  enderItem={(item) => <span>{item.toUpperCase()}</span>}
+/>
+
+// TypeScript automatically infers T based on the items prop.
+```
+## Conclusion
+
+Generics might look scary at first, but they are one of the most valuable tools in TypeScript. They help you write code that is:
+
+1. Reusable
+
+2. Type-safe
+
+3. Scalable
+
+4. Easy to maintain
+
+Once we get comfortable with generics, we'll start seeing them everywhere and you’ll wonder how we ever wrote TypeScript without them.

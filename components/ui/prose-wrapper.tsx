@@ -1,0 +1,10 @@
+const ProseWrapper = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="prose prose-zinc max-w-none dark:prose-invert prose-a:decoration-zinc-300 prose-a:underline-offset-4 prose-a:transition-colors hover:prose-a:decoration-zinc-700 dark:prose-a:decoration-zinc-600 dark:hover:prose-a:decoration-zinc-200">
+      <slot />
+    </div>
+  );
+};
+
+
+export default ProseWrapper
