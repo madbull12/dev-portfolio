@@ -4,6 +4,7 @@ import { mdxComponents } from "@prose-ui/next";
 import { MDXContent } from "@content-collections/mdx/react";
 import PageWrapper from "@/components/ui/page-wrapper";
 import { getAllPosts } from "@/lib/posts";
+import { Metadata } from "next";
 
 type Params = Promise<{ path: string[] }>;
 type PageProps = {
@@ -30,13 +31,37 @@ export async function generateStaticParams() {
     path: page._meta.path.slice(1).split("/"),
   }));
 }
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { path } = await params;
+  const post = await findPost(path);
+
+  if (!post) {
+    return {
+      title: "Not Found",
+      description: "The page you are looking for does not exist.",
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.description ?? post.title,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: "article",
+      tags: post.tags,
+    },
+  };
+}
 
 export default async function Page({ params }: PageProps) {
   const { path } = await params;
   let page = findPage(path);
   const post = await findPost(path);
 
-  console.log("PAGE:", page)
+  console.log("PAGE:", page);
   if (!page) notFound();
 
   return (
@@ -47,15 +72,15 @@ export default async function Page({ params }: PageProps) {
             {post?.title}
           </h1>
           <p className="text-zinc-700 transition-colors dark:text-zinc-300">
-            {post?.datetime && (<span>
-              {new Date(post?.datetime).toLocaleDateString("en-US", {
-                day: "2-digit",
-                month: "long",
-                year: "numeric",
-              })}
-            </span>
+            {post?.datetime && (
+              <span>
+                {new Date(post?.datetime).toLocaleDateString("en-US", {
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </span>
             )}
-            
           </p>
           <div className="mt-1 flex gap-4">
             {post?.tags?.map((tag) => (

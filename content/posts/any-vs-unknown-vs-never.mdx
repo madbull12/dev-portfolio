@@ -1,0 +1,148 @@
+---
+datetime: 2025-12-20T15:51:52.609Z
+title: "Any vs Unknown vs Never"
+description: Understanding the differences between any, unknown, and never in TypeScript, and when to use each safely."
+tags:
+  - typescript
+---
+
+Typescript has powerful type-safety tools, but there are three types that are confusing to developers especially type unknown and never, these two confuse even experienced developers.
+
+The three of them have very different use cases, so understanding when and how to use them properly will make your code safer, clearer and easier to maintain.
+
+## any
+
+When used, it disables Typescript type checking. Basically telling Typescript "Trust me I know what I'm doing". Let's take a look at how it's used in code.
+
+```ts
+let value: any = 10;
+
+value.toUpperCase(); // No error
+value(); // No error
+value.foo.bar.baz(); // Still no error
+```
+
+### Why this is bad?
+
+This is bad because there's no difference at all compared to using plain Javascript because it disables autocomplete, which to me is the best Typescript feature, it also disables compile-time errors, so basically you have to run the app first in order to find out if there's an error, and lastly it'll make our app more prone to runtime crashes.
+
+### When to use any?
+
+1. Migrating legacy JavaScript code
+
+2. Temporary escape hatch (but should be removed later)
+
+## unknown
+
+You can think of unknown as a safer alternative for any. Unknown tells Typescript that you're not sure what the type of a value is and you want to check the type first before using it.
+
+```ts
+let value: unknown = 10;
+
+value.toUpperCase(); // This will give you an error because Typescript expects you to narrow the type first.
+```
+
+Aight, let's check for the type first before using the value.
+
+```ts
+if (typeof value === "string") {
+  value.toUpperCase(); // Now this will work
+}
+```
+
+I personally use unknown when dealing with error handling. For instance:
+
+```ts
+try {
+  // ...
+} catch (err: unknown) {
+  if (err instanceof Error) {
+    console.log(err.message);
+  }
+
+  if (err instanceof AxiosError) {
+    // ...
+  }
+}
+```
+
+## never
+
+never is one of the most misunderstood but most powerful types in Typescript. It means that something cannot exist, and it's different from being empty, null and undefined. It just means something is logically impossible.
+
+Let's take a look at some examples of never being used in a code
+
+A function has type never when it always throws, loops forever and terminates the program.
+
+```ts
+function fail(message: string): never {
+  throw new Error(message);
+} //Calling this function never produces a value.
+
+function infiniteLoop(): never {
+  while (true) {}
+} //
+
+function process(value: string | number) {
+  if (typeof value === "string") {
+    return value.toUpperCase();
+  }
+
+  if (typeof value === "number") {
+    return value.toFixed(2);
+  }
+
+  return fail("Unreachable");
+} //TypeScript understands that fail() never returns, so control flow is correct.
+```
+
+never is really powerful when being used as exhaustive checking
+
+```ts
+type PaymentStatus =
+  | "pending"
+  | "completed"
+  | "failed";
+
+function handleStatus(status: PaymentStatus) {
+  switch (status) {
+    case "pending":
+      return "Processing...";
+    case "completed":
+      return "Success!";
+    case "failed":
+      return "Error!";
+    default:
+      const _exhaustive: never = status;
+      return _exhaustive;
+  }
+}
+
+```
+
+This is where never truly shines. Here, we have a function that takes status as an argument. The status parameter is typed as PaymentStatus, a union type that allows only three possible values: "pending", "completed", or "failed". The switch statement handles each possible value explicitly. Under normal circumstances, the default case should never be reached, because all valid union members are already covered. That’s why we assign status to a variable of type never:
+
+```ts
+
+const _exhaustive: never = status;
+
+```
+
+This line acts as a compile-time safety check. If a new value is ever added to PaymentStatus and this switch statement isn’t updated to handle it, TypeScript will throw an error, because the new value cannot be assigned to never.
+
+In other words, never turns a potential runtime bug into a compile-time error. It forces the code to stay in sync with the type definition, making refactors safer and ensuring that every possible state is handled deliberately.
+
+## Conclusion
+
+any, unknown, and never may look similar at the first glance, but they are used very differently in TypeScript.
+
+- any disables type safety entirely. It tells TypeScript not to help you, which can easily lead to runtime errors if overused.
+- unknown represents values you don’t yet understand. It forces you to validate and narrow types before use, making it the safest choice for external or untrusted data.
+- never represents impossible states. It shines in exhaustive checking and helps ensure that all code paths are handled correctly, especially during refactors.
+
+There are some easy guides to use these types:
+- Use any only as a last resort. You should try to never use this type unless absolutely necessary.
+- Prefer unknown when dealing with dynamic or external data.
+- Use never to enforce correctness and catch impossible states early
+
+By knowing how to use them, we can write code that is safe, clear and easy to maintain.

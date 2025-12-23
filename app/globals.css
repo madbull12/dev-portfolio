@@ -167,12 +167,20 @@
   body {
     @apply bg-background text-foreground;
   }
+  ::selection {
+    @apply bg-zinc-200 text-zinc-900;
+  }
+  
+  .dark ::selection {
+    @apply bg-zinc-800 text-zinc-100;
+  }
 }
 
 ::view-transition-old(root), ::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;
 }
+
 
 .prose-ui {
   --p-body-color-bg: transparent;

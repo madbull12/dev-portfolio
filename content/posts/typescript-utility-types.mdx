@@ -1,0 +1,28 @@
+---
+datetime: 2025-12-23T15:51:52.609Z
+title: "Typescript Utility Types"
+description: "Introduction to utility types in Typescript."
+tags:
+  - typescript
+---
+
+In this post, Let's talk about utility types in Typescript, what exactly are they anyway?. Utility types are a set of generic types provided by TypeScript that perform certain operations on types
+
+Aight, here are some utility types that are commonly used in Typescript:
+
+## Partial`<Type>`
+
+What this does is it converts all properties of a type to be optional. This is useful when you want to update only a few properties of an object.
+
+```ts
+interface Order {
+  id: number;
+  orderName: string;
+  price: number;
+}
+
+type PartialOrder = Partial<Order>;
+
+// All properties in PartialOrder are optional
+const updateUser: PartialOrder = { orderName:"Ducati Panigale v4" };
+```
