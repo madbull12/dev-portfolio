@@ -13,9 +13,7 @@ import {
   IconBrandGithub,
   IconBrandInstagram,
   IconBrandLinkedin,
-  IconBrandMailgun,
   IconMail,
-  TablerIcon,
 } from "@tabler/icons-react";
 const exampleSkills = [
   "React",

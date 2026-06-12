@@ -1,9 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import DotGrid from "@/components/DotGrid";
-import { useTheme } from "next-themes";
-import { BackgroundRippleEffect } from "../ui/background-ripple-effect";
+import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 
 const GridBgLayout = ({ children }: { children: ReactNode }) => {
   return (

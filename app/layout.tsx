@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import "./globals.css";
 import GridBgLayout from "@/components/layouts/grid-bg-layout";
 import { Header } from "@/components/layouts/header";
@@ -9,15 +10,7 @@ import { FloatingDockWrapper } from "@/components/layouts/floating-dock-wrapper"
 import { ThemeProvider } from "next-themes";
 import Footer from "@/components/layouts/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Andrian Lysander | Frontend Developer",
@@ -75,7 +68,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen`}
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
       >
         <ThemeProvider attribute="class">
           <TargetCursor spinDuration={2} />

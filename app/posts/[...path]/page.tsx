@@ -58,7 +58,7 @@ export async function generateMetadata({
 
 export default async function Page({ params }: PageProps) {
   const { path } = await params;
-  let page = findPage(path);
+  const page = findPage(path);
   const post = await findPost(path);
 
   console.log("PAGE:", page);

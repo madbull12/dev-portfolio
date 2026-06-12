@@ -24,5 +24,167 @@ interface Order {
 type PartialOrder = Partial<Order>;
 
 // All properties in PartialOrder are optional
-const updateUser: PartialOrder = { orderName:"Ducati Panigale v4" };
+const order: PartialOrder = { orderName: "Ducati Panigale v4" };
 ```
+
+## Required`<Type>`
+
+This is just the opposite of Partial, it essentially makes all of our properties required.
+
+```ts
+interface Order {
+  id: number;
+  orderName?: string;
+  price?: number;
+}
+
+type RequiredOrder = Required<Order>;
+
+// All properties in RequiredOrder are required
+const order: RequiredOrder = {
+  orderName: "Ducati Panigale v4",
+  id: 123,
+  price: 100000,
+};
+```
+
+## ReadOnly`<Type>`
+
+This makes the properties of a type readonly, meaning we can't reassign them after initial declaraction
+
+```ts
+interface Order {
+  id: number;
+  orderName?: string;
+  price?: number;
+}
+
+type ReadOnlyOrder = ReadOnly<Order>;
+
+// All properties in ReadOnlyOrder can't be reassigned now
+const order: ReadOnlyOrder = {
+  orderName: "Ducati Panigale v4",
+  id: 123,
+  price: 100000,
+};
+
+order.orderName = "BMW S1000RR"; // This line will throw an error
+```
+
+## Record`<Keys, Type>`
+
+Creates a type that maps a set of property keys (Keys) to a single value type (Type). It’s commonly used when you want multiple properties to share the same type.
+
+```ts
+type UserKeys = "name" | "id" | "age";
+
+type User = Record<UserKeys, string>;
+
+const user: User = {
+  name: "Alexandra",
+  id: "1",
+  age: "28",
+};
+```
+
+## Pick`<Type, Keys>`
+
+This creates a new type by selecting a subset of properties Keys from Type
+
+```ts
+type User = {
+  name: string;
+  id: string;
+  age: string;
+  email: string;
+};
+
+type PublicUser = Pick<User, "name" | "id" | "age">;
+
+// PublicUser has only the name, id and age properties
+const user: PublicUser = {
+  name: "Alexandra",
+  id: "1",
+  age: "28",
+};
+```
+
+## Omit`<Type, Keys>`
+
+This is the opposite of Pick Type which creates a new type by removing properties Keys from Type.
+
+```ts
+type User = {
+  name: string;
+  id: string;
+  age: string;
+  email: string;
+};
+
+type PublicUser = Omit<User, "email">;
+
+// Email property won't be included in PublicUser
+const user: PublicUser = {
+  name: "Alexandra",
+  id: "1",
+  age: "28",
+};
+```
+
+## Exclude`<T, U>`
+
+Creates a type by removing members of union U from union T.
+
+```ts
+type Roles = "admin" | "editor" | "user";
+
+type NonAdminRoles = Exclude<Roles, "admin">;
+// "editor" | "user"
+
+const role: NonAdminRoles = "editor";
+const adminRole: NonAdminRoles = "admin"; // This will throw an error.
+```
+
+## Extract`<T, U>`
+
+This creates a type by keeping only the members of union T that are assignable to union U.
+
+```ts
+type Roles = "admin" | "editor" | "user";
+
+type AdminOnly = Extract<Roles, "admin">;
+// "admin"
+
+const role: AdminOnly = "admin";
+const notAdminRole: AdminOnly = "user"; // This will throw an error
+```
+
+## NonNullable`<T>`
+
+This will create a type by excluding null and undefined from T
+
+```ts
+type Value = string | number | null | undefined;
+
+type DefinedValue = NonNullable<Value>;
+// this becomes string | number
+
+const value: DefinedValue = "hello";
+```
+
+## Parameters`<T>`
+
+This utility type xtracts the parameter types of a function type T as a tuple.
+
+```ts
+function createUser(name: string, age: number, isAdmin: boolean) {}
+
+type CreateUserParams = Parameters<typeof createUser>;
+// CreateUserParams is [string, number, boolean]
+```
+
+## Conclusion
+
+Typescript utility types are powerful tools that help you transform and reuse built-in types instead of creating them from scratch. By utilizing all the utility types above, you can model real-world data more accurately while keeping your codebase clean and maintainable.
+
+They are useful especially in large applications like when dealing with API responses, form states, updates, and shared domain models by reducing duplication and making your intent clearer to both TypeScript and other developers. Understanding when and how to use these utility types will not only improve type safety, but also make your TypeScript code easier to scale and reason about.

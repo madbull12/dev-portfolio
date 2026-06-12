@@ -14,7 +14,10 @@ const HeroSection = () => {
     <section className="flex flex-col-reverse gap-16 lg:gap-4 items-center justify-center lg:flex-row">
       <HeroText />
       <Terminal className="flex-1 relative rounded-lg ">
-        <ShineBorder className="rounded-lg" shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
+        <ShineBorder
+          className="rounded-lg"
+          shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+        />
 
         <AnimatedSpan delay={0}>$ hello-world</AnimatedSpan>
         <TypingAnimation delay={800} duration={90}>
@@ -23,7 +26,7 @@ const HeroSection = () => {
 
         <AnimatedSpan delay={2500}>$ cat skills.txt</AnimatedSpan>
         <TypingAnimation delay={3500} duration={70}>
-          TypeScript • React  • Next.js • Tailwind • Prisma • PostgreSQL
+          TypeScript • React • Next.js • Tailwind • Prisma • PostgreSQL
         </TypingAnimation>
 
         <AnimatedSpan delay={5500}>$ cat interests.txt</AnimatedSpan>
@@ -36,7 +39,7 @@ const HeroSection = () => {
           🚀 Deploying ideas into reality...
         </TypingAnimation>
 
-        <AnimatedSpan delay={11500}>$ echo "Welcome aboard!"</AnimatedSpan>
+        <AnimatedSpan delay={11500}>{'$ echo "Welcome aboard!"'}</AnimatedSpan>
         <TypingAnimation delay={12500} duration={90}>
           Thanks for stopping by — feel free to explore.
         </TypingAnimation>

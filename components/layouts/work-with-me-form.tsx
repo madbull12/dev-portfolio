@@ -6,13 +6,13 @@ import {
   PopoverFormSeparator,
   PopoverFormSuccess,
 } from "@/components/ui/popover-form";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 type FormState = "idle" | "loading" | "success";
 const WorkWithMeForm = () => {
   const [formState, setFormState] = useState<FormState>("idle");
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [, setEmail] = useState("");
   const [message, setMessage] = useState("");
    const sendToWhatsApp = (message: string, phone?: string) => {
     const text = encodeURIComponent(message.trim());
@@ -24,19 +24,19 @@ const WorkWithMeForm = () => {
 
     window.open(url, "_blank");
   };
-  function submit() {
-    setFormState("loading");
-    setTimeout(() => {
-      setFormState("success");
-    }, 1500);
-    setTimeout(() => {
-      setOpen(false);
-      setFormState("idle");
-      setName("");
-      setEmail("");
-      setMessage("");
-    }, 3300);
-  }
+  // function submit() {
+  //   setFormState("loading");
+  //   setTimeout(() => {
+  //     setFormState("success");
+  //   }, 1500);
+  //   setTimeout(() => {
+  //     setOpen(false);
+  //     setFormState("idle");
+  //     setName("");
+  //     setEmail("");
+  //     setMessage("");
+  //   }, 3300);
+  // }
   return (
     <div>
       <PopoverForm

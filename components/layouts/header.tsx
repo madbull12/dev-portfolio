@@ -8,14 +8,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import { Button } from "../ui/button";
 
-import { Separator } from "@radix-ui/react-dropdown-menu";
-import { ArrowUp, Github, GithubIcon } from "lucide-react";
+import { ArrowUp} from "lucide-react";
 import { Logo } from "@/components/svg/logo";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { IconBrandGithub } from "@tabler/icons-react";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import ContactMeButton from "./work-with-me-form";
 // const links = [
 //   {
 //     title: "All",

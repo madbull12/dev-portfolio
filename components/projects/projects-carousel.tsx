@@ -3,7 +3,6 @@
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const projectContents = [
