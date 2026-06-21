@@ -1,0 +1,10 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 512 256"
+  width="32"
+  height="32"
+>
+  <polygon points="50,200 150,50 250,200" fill="currentColor" />
+
+  <path d="M300 50 H380 V120 H420 V50 H500 V200 H420 V140 H380 V200 H300 Z" fill="currentColor" />
+</svg>
