@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import GridBgLayout from "@/components/layouts/grid-bg-layout";
 import { Header } from "@/components/layouts/header";
@@ -58,7 +57,10 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
 };
-
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -68,7 +70,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${geistMono.variable} ${geistMono.variable}`}
       >
         <ThemeProvider attribute="class">
           <TargetCursor spinDuration={2} />
