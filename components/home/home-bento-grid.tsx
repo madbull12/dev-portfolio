@@ -134,12 +134,19 @@ const TechStack = () => {
 
 const MyResume = () => {
   return (
-    <MagicCard className=" h-full p-8 flex items-center justify-center">
-      <p className="font-bold text-xl text-center">Resume</p>
-      <p className="text-neutral-500 font-bold text-sm">
-        (Click here to download)
-      </p>
-    </MagicCard>
+    <a
+      href="/andrian-resume.pdf"
+      download
+      className="block h-full cursor-pointer"
+      aria-label="Download resume"
+    >
+      <MagicCard className="flex h-full flex-col items-center justify-center p-8 text-center transition-transform hover:scale-[1.02]">
+        <p className="text-xl font-bold">Resume</p>
+        <p className="mt-1 text-sm font-bold text-neutral-500">
+          (Click here to download)
+        </p>
+      </MagicCard>
+    </a>
   );
 };
 

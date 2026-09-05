@@ -99,23 +99,23 @@ export function WorkTimeline() {
             Front End Developer Intern | Slivatech
           </p>
           <ul className="mb-8">
-            <li className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
+            <li >
               ✅ Developed and maintained the SlivaDoc website using React.js
               and TypeScript.
             </li>
-            <li className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
+            <li >
               ✅ Implemented Context API for state management and created
               reusable, styled components with Styled Components.
             </li>
-            <li className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
+            <li >
               ✅ Collaborated with other developers to deliver new features and
               ensure smooth integration.
             </li>
-            <li className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
+            <li >
               ✅ Conducted weekly meetings with the CEO to align on priorities,
               gather feedback, and present progress.
             </li>
-            <li className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
+            <li >
               ✅ Focused on writing clean, maintainable code while following
               industry best practices.
             </li>
