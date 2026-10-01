@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     title: "Andrian Lysander | Frontend Developer",
     description:
       "Discover Andrian's expertise in Frontend Development, React, and Next.js. View projects, case studies, and technical skills.",
-    url: "https://kinhdev.id.vn",
     type: "website",
     images: [
       {
