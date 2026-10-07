@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://voocgavdbpy2gucg.public.blob.vercel-storage.com/open-graph-6fkPvt3jl60AhDWy2pPhfp3PKoZPrZ.png",
+        url: "https://nssaz5dgkiil6qba.public.blob.vercel-storage.com/Screenshot%202026-10-07%20at%2010.23.02%E2%80%AFPM.png",
         width: 1200,
         height: 630,
         alt: "Andrian Lysander - Frontend Developer Portfolio",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     description:
       "Explore Andrian Lysander's frontend projects and expertise in React, Next.js, and modern web development.",
     images: [
-      "https://voocgavdbpy2gucg.public.blob.vercel-storage.com/open-graph-6fkPvt3jl60AhDWy2pPhfp3PKoZPrZ.png",
+      "https://nssaz5dgkiil6qba.public.blob.vercel-storage.com/Screenshot%202026-10-07%20at%2010.23.02%E2%80%AFPM.png",
     ],
   },
   icons: {
